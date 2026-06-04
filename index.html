@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>胡泽瑞 - 个人简历</title>
+<style>
+:root{--primary:#2563eb;--primary-light:#60a5fa;--secondary:#7c3aed;--accent:#06b6d4;--dark:#0f172a;--darker:#020617;--light:#f8fafc;--gray:#94a3b8;--gray-dark:#475569;--card-bg:rgba(30,41,59,0.75);--border:rgba(148,163,184,0.12);--radius:14px;--transition:all .4s cubic-bezier(.4,0,.2,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;background:var(--darker);color:var(--light);line-height:1.7;overflow-x:hidden}
+#particles-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg-gradient{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse 80% 55% at 15% 15%,rgba(37,99,235,0.10) 0%,transparent 60%),radial-gradient(ellipse 60% 45% at 80% 85%,rgba(124,58,237,0.08) 0%,transparent 60%);animation:gs 20s ease-in-out infinite alternate}
+@keyframes gs{0%{transform:scale(1)}100%{transform:scale(1.08) rotate(2deg)}}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.75rem 2rem;background:rgba(2,6,23,0.6);backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:var(--transition)}
+nav.scrolled{background:rgba(2,6,23,0.95);border-bottom-color:var(--border)}
+.nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--light)}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.85rem;font-weight:500;transition:var(--transition);position:relative;padding:.25rem 0}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--primary-light);transition:var(--transition);border-radius:2px}
+.nav-links a:hover{color:var(--light)}
+.nav-links a:hover::after{width:100%}
+.menu-toggle{display:none;flex-direction:column;gap:4px;cursor:pointer;background:none;border:none;padding:4px}
+.menu-toggle span{width:24px;height:2px;background:var(--light);transition:var(--transition);border-radius:2px}
+.container{max-width:1000px;margin:0 auto;padding:0 1.8rem;position:relative;z-index:1}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:7rem 2rem 4rem;position:relative}
+.hero-content{text-align:center;max-width:780px}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;line-height:1.1;margin-bottom:.25rem;letter-spacing:-.5px;background:linear-gradient(135deg,#e2e8f0,var(--primary-light),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fi .8s ease}
+.hero .sub{font-size:clamp(1rem,1.5vw,1.2rem);color:var(--gray);margin-bottom:.15rem;animation:fi .8s ease .12s both}
+.hero .loc{font-size:.85rem;color:var(--gray-dark);margin-bottom:1.2rem;animation:fi .8s ease .2s both}
+.hero-badges{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-bottom:1.5rem;animation:fi .8s ease .28s both}
+.hero-badges span{padding:.25rem .9rem;border-radius:100px;font-size:.78rem;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.18);color:var(--primary-light);transition:var(--transition)}
+.hero-badges span:hover{background:rgba(37,99,235,0.18);transform:translateY(-2px)}
+.cta-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;animation:fi .8s ease .36s both}
+.cta-btn{padding:.7rem 1.6rem;border-radius:100px;font-size:.88rem;font-weight:600;text-decoration:none;transition:var(--transition);display:inline-flex;align-items:center;gap:.5rem;border:none}
+.cta-btn.pri{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;box-shadow:0 4px 20px rgba(37,99,235,0.25)}
+.cta-btn.pri:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,99,235,0.35)}
+.cta-btn.sec{background:rgba(255,255,255,0.04);color:var(--light);border:1px solid var(--border)}
+.cta-btn.sec:hover{background:rgba(255,255,255,0.1);transform:translateY(-3px)}
+.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:bn 2s infinite;color:var(--gray);font-size:1.4rem;opacity:.4}
+@keyframes bn{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+@keyframes fi{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+
+/* Sections */
+section{padding:4.5rem 0}
+.s-hdr{text-align:center;margin-bottom:2.5rem}
+.s-hdr h2{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:700}
+.s-hdr h2 .h{background:linear-gradient(135deg,var(--primary-light),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.s-hdr .sn{color:var(--gray-dark);font-size:.82rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.2rem}
+.s-line{width:40px;height:3px;background:linear-gradient(135deg,var(--primary-light),var(--secondary));border-radius:3px;margin:.5rem auto 0}
+
+/* Timeline (main structure) */
+.tl{position:relative;max-width:800px;margin:0 auto}
+.tl::before{content:'';position:absolute;left:18px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--primary),var(--secondary),transparent)}
+.tl-it{position:relative;padding-left:54px;margin-bottom:2rem}
+.tl-dot{position:absolute;left:9px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--darker);border:3px solid var(--primary-light);box-shadow:0 0 15px rgba(37,99,235,0.2);z-index:2}
+.tl-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.5rem;backdrop-filter:blur(10px);transition:var(--transition)}
+.tl-card:hover{border-color:rgba(96,165,250,0.25);transform:translateX(4px);background:rgba(30,41,59,0.92)}
+.tl-hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem 1rem;margin-bottom:.05rem}
+.tl-hd h3{font-size:1.05rem;font-weight:600}
+.tl-hd .r{color:var(--primary-light);font-size:.78rem;font-weight:500}
+.tl .d{color:var(--gray-dark);font-size:.74rem;margin-bottom:.35rem}
+.tl-card p{color:var(--gray);font-size:.88rem;line-height:1.65;margin-bottom:.35rem}
+.tl-card ul{padding-left:1.1rem;color:var(--gray);font-size:.85rem}
+.tl-card ul li{margin-bottom:.2rem}
+.tl-card ul li::marker{color:var(--primary-light)}
+
+/* Project cards */
+.pj{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.1rem}
+.pj-c{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.3rem 1.4rem;backdrop-filter:blur(10px);transition:var(--transition);display:flex;flex-direction:column}
+.pj-c:hover{border-color:rgba(96,165,250,0.25);transform:translateY(-4px);background:rgba(30,41,59,0.92)}
+.pj-c .ic{font-size:1.3rem;margin-bottom:.4rem}
+.pj-c h4{font-size:.95rem;font-weight:600;margin-bottom:.1rem}
+.pj-c .pm{color:var(--primary-light);font-size:.76rem;font-weight:500;margin-bottom:.35rem}
+.pj-c p{color:var(--gray);font-size:.83rem;line-height:1.55;flex:1}
+.pj-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.5rem}
+.pj-tags span{padding:.15rem .55rem;border-radius:100px;font-size:.7rem;background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.14);color:var(--primary-light)}
+
+/* Contact */
+.cx{text-align:center;padding:2.5rem 2rem;background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border)}
+.cx h3{font-size:1.4rem;margin-bottom:.3rem}
+.cx p{color:var(--gray);font-size:.85rem;margin-bottom:1.3rem}
+.cl{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.cl a{padding:.55rem 1.2rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;color:var(--light);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:var(--transition);font-size:.82rem}
+.cl a:hover{background:rgba(37,99,235,0.12);border-color:var(--primary);transform:translateY(-2px)}
+footer{text-align:center;padding:1.5rem;border-top:1px solid var(--border);color:var(--gray-dark);font-size:.78rem}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Summary box */
+.sm{border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.5rem;margin-top:1rem;background:var(--card-bg)}
+.sm p{color:var(--gray);font-size:.84rem}
+
+/* Sub-section label */
+.sec-label{font-size:.95rem;font-weight:600;color:var(--primary-light);margin:1.5rem 0 1rem;padding-left:.5rem;border-left:3px solid var(--primary-light)}
+
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(2,6,23,0.98);flex-direction:column;padding:1.2rem 1.8rem;gap:.8rem;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .menu-toggle{display:flex}
+  .container{padding:0 1.2rem}
+  .pj{grid-template-columns:1fr}
+}
+@media print{
+  nav{display:none}
+  #particles-canvas{display:none}
+  .bg-gradient{display:none}
+  body{background:#fff;color:#000}
+  .tl-card,.pj-c,.cx,.sm{background:#f5f5f5!important;border-color:#ddd!important;color:#333!important}
+  .tl-card p,.pj-c p,.sm p,.tl-card ul,.tl-card li{color:#555!important}
+  .h,.tl-hd .r,.sec-label,.pj-c .pm{color:#2563eb!important;-webkit-text-fill-color:#2563eb!important}
+}
+</style>
+</head>
+<body>
+<div class="bg-gradient"></div>
+<canvas id="particles-canvas"></canvas>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">胡泽瑞</div>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#exp">经历</a></li>
+      <li><a href="#edu">教育</a></li>
+      <li><a href="#certs">资质</a></li>
+      <li><a href="#skills">技能</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>胡泽瑞</h1>
+    <p class="sub">助理顾问工程师 · ICT 解决方案</p>
+    <p class="loc">华讯网络 ECCOM ｜ 香港教育大学（人工智能与教育科技）硕士 · 南京理工大学紫金学院（物联网工程）本科</p>
+    <div class="hero-badges">
+      <span>🌐 华为 HCIP</span>
+      <span>🛡️ Hillstone HCSP</span>
+      <span>🏦 金融项目交付</span>
+      <span>📋 政府投标管理</span>
+      <span>🎓 AI 智慧校园</span>
+      <span>📡 NFV 核心网运维</span>
+    </div>
+    <div class="cta-btns">
+      <a href="mailto:hu8325415@163.com" class="cta-btn pri">📧 联系</a>
+      <a href="#exp" class="cta-btn sec">📄 工作经历</a>
+      <a href="#proj" class="cta-btn sec">📂 项目经历</a>
+    </div>
+  </div>
+  <div class="scroll-ind">⌄</div>
+</section>
+
+<!-- ===== Work Experience ===== -->
+<section id="exp" style="background:rgba(30,41,59,0.12)">
+  <div class="container">
+    <div class="s-hdr reveal">
+      <p class="sn">Experience</p>
+      <h2>工作 <span class="h">经历</span></h2>
+      <div class="s-line"></div>
+    </div>
+    <div class="tl">
+
+      <!-- ECCOM -->
+      <div class="tl-it reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-hd"><h3>华讯网络 (ECCOM)</h3><span class="r">助理顾问工程师</span></div>
+          <div class="d">2025.07 — 至今 · 香港</div>
+          <p>负责香港地区企业级 IT 基础架构项目方案设计、技术交付与投标管理。覆盖 Cisco/H3C/华为/Hillstone 等多厂商产品线。</p>
+          <ul>
+            <li>主导工银国际网络架构重构项目全流程（物理勘查→设备验收→灾备迁移实施）</li>
+            <li>参与交通银行香港分行 Cisco 网络维护、华泰金控港交所 HSN 网络建设等项目</li>
+            <li>参与香港医管局（网络安全）、香港司法机构（网络硬件）等政府投标项目</li>
+            <li>主导中国联通国际 DP+ 专属 CT 云、越秀数科香港数据中心等运营商/企业投标</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 佳发安泰 -->
+      <div class="tl-it reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-hd"><h3>成都佳发安泰教育科技股份有限公司</h3><span class="r">售前 / 技术支持工程师</span></div>
+          <div class="d">过往经历</div>
+          <p>教育信息化头部企业，深度参与 AI 智慧校园建设、国家级考试保障及项目招投标全流程。</p>
+          <ul>
+            <li><strong>四川大学智慧课堂建设</strong> — 参与 AI 智慧校园建设，完成智能考勤、课堂生态、ST 行为分析等系统设计及技术服务实施方案编写，利用自动人数清点与行为分析技术实现师生无感知考勤，助力学校信息化提升</li>
+            <li><strong>广东省公务员考试阅卷保障</strong> — 完成人脸识别系统方案编写及现场安装维护、人脸信息采集，保障阅卷工作安全</li>
+            <li><strong>深圳市 2023 年普通高考智能安检门项目</strong> — 独立完成招投标全程（实施方案、技术方案、报价），中标后参与建设并现场保障运行</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 中邮建 -->
+      <div class="tl-it reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-hd"><h3>中邮建技术有限公司</h3><span class="r">网络运维工程师</span></div>
+          <div class="d">过往经历</div>
+          <p>参与运营商级核心网 NFV 项目，积累大型数据中心运维经验。</p>
+          <ul>
+            <li><strong>ZTE 中兴通讯杭州核心网 NFV 项目</strong> — 协助中国移动华东南大区资源池虚拟机、服务器、分布式存储、端口等设备运维</li>
+            <li>运用 TECS Inspector 工具完成设备巡检，分析并处理设备告警</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Education ===== -->
+<section id="edu">
+  <div class="container">
+    <div class="s-hdr reveal">
+      <p class="sn">Education</p>
+      <h2>教育 <span class="h">背景</span></h2>
+      <div class="s-line"></div>
+    </div>
+    <div class="tl">
+      <div class="tl-it reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-hd"><h3>香港教育大学</h3><span class="r">硕士研究生 · 人工智能与教育科技</span></div>
+          <div class="d">2024.09 — 2025.08 · 全日制</div>
+          <p>主修课程：移动应用设计与开发、神经网络与深度学习、研究方法与探究、人工智能教育、编码与运算思维、科技辅助创新学习环境设计等。</p>
+        </div>
+      </div>
+      <div class="tl-it reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-hd"><h3>南京理工大学（紫金学院）</h3><span class="r">本科 · 物联网工程</span></div>
+          <div class="d">2019.09 — 2023.06 · 全日制</div>
+          <p>主修课程：LTE 基础、无线网络优化、窄带物联网技术、数据库基础与应用、5G 无线网络优化、NB-IoT 原理、MATLAB 语言及其应用、物联网技术、C 语言编程、Java 编程等。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Projects ===== -->
+<section id="proj" style="background:rgba(30,41,59,0.12)">
+  <div class="container">
+    <div class="s-hdr reveal">
+      <p class="sn">Projects</p>
+      <h2>项目 <span class="h">经历</span></h2>
+      <div class="s-line"></div>
+    </div>
+
+    <!-- ECCOM Projects -->
+    <p class="sec-label reveal">▎华讯网络 ECCOM 项目</p>
+    <div class="pj">
+      <div class="pj-c reveal">
+        <div class="ic">🏦</div>
+        <h4>工银国际网络架构重构</h4>
+        <div class="pm">大型项目全流程实践</div>
+        <p>完成中环、将军澳、新蒲岗机房物理环境勘查，输出电源/空间/线缆详细报告；主导 H3C S5130S 交换机到仓验收、版本升级与加电测试；参与灾备网络新建及并网、服务器区/外联区迁移、办公网络替换。采用双中心双活架构，核心 S7503X-G，万兆/百兆骨干。</p>
+        <div class="pj-tags"><span>H3C</span><span>双中心双活</span><span>灾备</span><span>金融</span></div>
+      </div>
+      <div class="pj-c reveal">
+        <div class="ic">🏛️</div>
+        <h4>交通银行香港分行 Cisco 网络维护</h4>
+        <div class="pm">获客户感谢信</div>
+        <p>为交通银行（BOCOM）香港分行提供思科网络设备维护与技术支持。高质量交付获客户书面感谢信认可。</p>
+        <div class="pj-tags"><span>Cisco</span><span>网络维护</span><span>金融</span><span>感谢信</span></div>
+      </div>
+      <div class="pj-c reveal">
+        <div class="ic">🔐</div>
+        <h4>工银国际安全策略与堡垒机配置</h4>
+        <div class="pm">金融安全合规</div>
+        <p>配置堡垒机用户组及策略，掌握企业级安全策略配置方法，了解金融行业安全合规要求与运维审计体系。</p>
+        <div class="pj-tags"><span>堡垒机</span><span>安全策略</span><span>运维审计</span></div>
+      </div>
+      <div class="pj-c reveal">
+        <div class="ic">📈</div>
+        <h4>华泰金控港交所 HSN 网络建设</h4>
+        <div class="pm">金融类型</div>
+        <p>参与港交所 HSN 网络建设项目，负责交换机安装调试，学习数据中心机柜布线规则与标准化流程。</p>
+        <div class="pj-tags"><span>港交所</span><span>交换机</span><span>数据中心</span></div>
+      </div>
+      <div class="pj-c reveal">
+        <div class="ic">🔷</div>
+        <h4>国泰君安 Huawei 交换机安装实施</h4>
+        <div class="pm">金融类型</div>
+        <p>负责华为交换机安装实施，完成设备上架、配置与联调，学习金融行业网络设备部署规范。</p>
+        <div class="pj-tags"><span>华为</span><span>交换机</span><span>金融</span></div>
+      </div>
+      <div class="pj-c reveal">
+        <div class="ic">🌐</div>
+        <h4>招银国际 DWDM 维护</h4>
+        <div class="pm">光传输网络</div>
+        <p>参与招银国际 DWDM 设备维护项目，学习光传输网络基础与维护流程。</p>
+        <div class="pj-tags"><span>DWDM</span><span>光传输</span><span>维护</span></div>
+      </div>
+    </div>
+
+    <!-- Bidding Projects -->
+    <p class="sec-label reveal" style="margin-top:2rem">▎投标项目（ECCOM）</p>
+    <div class="pj">
+      <div class="pj-c reveal">
+        <div class="ic">🏥</div>
+        <h4>香港医管局网络安全招标</h4>
+        <div class="pm">政府 · A/B/C 三类别</div>
+        <p>A 类网络安全事件响应与威胁情报、B 类安全系统增强、C 类网络保障服务。主导 Technical proposal 分析，搭建投标文件框架，为撰写"符合性声明"奠定基础。</p>
+        <div class="pj-tags"><span>网络安全</span><span>威胁情报</span><span>政府投标</span></div>
+      </div>
+      <div class="pj-c reveal">
+        <div class="ic">⚖️</div>
+        <h4>香港司法机构网络设备招标</h4>
+        <div class="pm">政府 · 三站点三组别</div>
+        <p>为铜锣湾、深水埗、西湾河三站点供应安装全新网络与安全硬件。Group A 建筑网络升级、B 数据中心网络建设、C DMZ 网络与安全设备。</p>
+        <div class="pj-tags"><span>网络硬件</span><span>数据中心</span><span>DMZ</span></div>
+      </div>
+      <div class="pj-c reveal">
+        <div class="ic">📡</div>
+        <h4>中国联通国际 DP+ 专属 CT 云新建</h4>
+        <div class="pm">运营商 · 标段三</div>
+        <p>提供硬盘、日志采集设备及从硬件改造到云平台调测的全套集成服务。须满足终验后 2 年免费维保、香港本地团队、严苛故障响应等实质性条款。</p>
+        <div class="pj-tags"><span>运营商</span><span>云平台</span><span>集成服务</span></div>
+      </div>
+      <div class="pj-c reveal">
+        <div class="ic">🏗️</div>
+        <h4>越秀数科香港数据中心建设</h4>
+        <div class="pm">企业 · 一期三子项目</div>
+        <p>提供网络、安全及负载均衡核心设备。子项目 1（371 万 HKD）交换机及集成、子项目 4（258 万 HKD）防火墙维保、子项目 3（213 万 HKD）负载均衡。</p>
+        <div class="pj-tags"><span>数据中心</span><span>交换机</span><span>防火墙</span></div>
+      </div>
+    </div>
+    <div class="sm reveal">
+      <p><strong>💡 投标经验总结：</strong>通过系统性参与政府、企业、运营商三类投标项目，熟练掌握了从零构建高质量投标文件的全流程。完成了从技术交付思维到前端项目支持与商务策划能力的转变。</p>
+    </div>
+
+    <!-- 佳发 Project -->
+    <p class="sec-label reveal" style="margin-top:2rem">▎成都佳发安泰项目</p>
+    <div class="pj">
+      <div class="pj-c reveal">
+        <div class="ic">🎓</div>
+        <h4>四川大学智慧课堂建设项目</h4>
+        <div class="pm">AI 智慧校园</div>
+        <p>参与 AI 智慧校园建设，完成智能考勤、课堂生态、ST 行为分析等系统设计及技术服务实施方案编写。利用自动人数清点分析技术与行为分析技术，满足师生无感知考勤业务场景，为学校提供精准的授课质量、课堂秩序和师生出勤统计。利用信息化手段解决教务部门巡课、听评课、教学总结反思问题。</p>
+        <div class="pj-tags"><span>AI 智慧校园</span><span>行为分析</span><span>智能考勤</span><span>教育信息化</span></div>
+      </div>
+      <div class="pj-c reveal">
+        <div class="ic">📋</div>
+        <h4>广东省公务员考试阅卷保障</h4>
+        <div class="pm">国家级考试保障</div>
+        <p>完成人脸识别系统解决方案编写，负责广东省公务员考试阅卷现场人脸识别系统安装与维护工作，采集阅卷老师人脸信息，防止无关人员进入阅卷现场，保障阅卷工作顺利进行。</p>
+        <div class="pj-tags"><span>人脸识别</span><span>考试保障</span><span>安全防范</span></div>
+      </div>
+      <div class="pj-c reveal">
+        <div class="ic">🛂</div>
+        <h4>深圳市 2023 年普通高考智能安检门</h4>
+        <div class="pm">独立完成招投标</div>
+        <p>独立完成项目招投标工作，包括实施方案、技术方案、服务模式、报价等方案编写。中标后参与深圳市 2023 年普通高考智能安检门建设，并现场保障高考安检门设备顺利运行。</p>
+        <div class="pj-tags"><span>招投标</span><span>高考保障</span><span>智能安检</span><span>项目管理</span></div>
+      </div>
+    </div>
+
+    <!-- 中邮建 Project -->
+    <p class="sec-label reveal" style="margin-top:2rem">▎中邮建项目</p>
+    <div class="pj">
+      <div class="pj-c reveal">
+        <div class="ic">📡</div>
+        <h4>ZTE 中兴通讯杭州核心网 NFV 项目</h4>
+        <div class="pm">运营商级核心网运维</div>
+        <p>协助完成中国移动华东南大区资源池虚拟机、服务器、分布式存储、端口等设备运维工作。运用 TECS Inspector 工具完成设备巡检，分析并处理设备告警，保障核心网稳定运行。</p>
+        <div class="pj-tags"><span>NFV</span><span>核心网</span><span>ZTE</span><span>中国移动</span><span>运维</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Certifications ===== -->
+<section id="certs">
+  <div class="container">
+    <div class="s-hdr reveal">
+      <p class="sn">Certifications</p>
+      <h2>专业 <span class="h">资质</span></h2>
+      <div class="s-line"></div>
+    </div>
+    <div class="pj">
+      <div class="pj-c reveal" style="text-align:center"><div class="ic">🌐</div><h4>华为 HCIP</h4><p class="pm">Huawei Certified ICT Professional</p></div>
+      <div class="pj-c reveal" style="text-align:center"><div class="ic">🛡️</div><h4>Hillstone HCSP</h4><p class="pm">Hillstone Certified Security Professional</p></div>
+      <div class="pj-c reveal" style="text-align:center"><div class="ic">🔒</div><h4>Hillstone HCSA</h4><p class="pm">Hillstone Certified Security Associate</p></div>
+      <div class="pj-c reveal" style="text-align:center"><div class="ic">📡</div><h4>IP Network HCSA</h4><p class="pm">IP 网络认证工程师</p></div>
+      <div class="pj-c reveal" style="text-align:center"><div class="ic">💾</div><h4>Storage HCSA</h4><p class="pm">存储认证工程师</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Skills ===== -->
+<section id="skills" style="background:rgba(30,41,59,0.12)">
+  <div class="container">
+    <div class="s-hdr reveal">
+      <p class="sn">Skills</p>
+      <h2>核心 <span class="h">技能</span></h2>
+      <div class="s-line"></div>
+    </div>
+    <div class="sm reveal">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.6rem">
+        <div style="padding:.3rem 0"><div style="font-size:.82rem;color:var(--light);margin-bottom:.25rem">网络架构设计</div><div style="height:4px;background:rgba(148,163,184,0.1);border-radius:4px;overflow:hidden"><div class="sf" data-w="90" style="height:100%;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:4px;width:0;transition:width 1.5s"></div></div></div>
+        <div style="padding:.3rem 0"><div style="font-size:.82rem;color:var(--light);margin-bottom:.25rem">网络安全方案</div><div style="height:4px;background:rgba(148,163,184,0.1);border-radius:4px;overflow:hidden"><div class="sf" data-w="85" style="height:100%;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:4px;width:0;transition:width 1.5s"></div></div></div>
+        <div style="padding:.3rem 0"><div style="font-size:.82rem;color:var(--light);margin-bottom:.25rem">投标与项目管理</div><div style="height:4px;background:rgba(148,163,184,0.1);border-radius:4px;overflow:hidden"><div class="sf" data-w="92" style="height:100%;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:4px;width:0;transition:width 1.5s"></div></div></div>
+        <div style="padding:.3rem 0"><div style="font-size:.82rem;color:var(--light);margin-bottom:.25rem">Cisco 产品方案</div><div style="height:4px;background:rgba(148,163,184,0.1);border-radius:4px;overflow:hidden"><div class="sf" data-w="88" style="height:100%;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:4px;width:0;transition:width 1.5s"></div></div></div>
+        <div style="padding:.3rem 0"><div style="font-size:.82rem;color:var(--light);margin-bottom:.25rem">华为 / H3C 产品</div><div style="height:4px;background:rgba(148,163,184,0.1);border-radius:4px;overflow:hidden"><div class="sf" data-w="82" style="height:100%;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:4px;width:0;transition:width 1.5s"></div></div></div>
+        <div style="padding:.3rem 0"><div style="font-size:.82rem;color:var(--light);margin-bottom:.25rem">香港 IT 采购流程</div><div style="height:4px;background:rgba(148,163,184,0.1);border-radius:4px;overflow:hidden"><div class="sf" data-w="90" style="height:100%;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:4px;width:0;transition:width 1.5s"></div></div></div>
+        <div style="padding:.3rem 0"><div style="font-size:.82rem;color:var(--light);margin-bottom:.25rem">Hillstone 安全产品</div><div style="height:4px;background:rgba(148,163,184,0.1);border-radius:4px;overflow:hidden"><div class="sf" data-w="80" style="height:100%;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:4px;width:0;transition:width 1.5s"></div></div></div>
+        <div style="padding:.3rem 0"><div style="font-size:.82rem;color:var(--light);margin-bottom:.25rem">AI 智慧校园方案</div><div style="height:4px;background:rgba(148,163,184,0.1);border-radius:4px;overflow:hidden"><div class="sf" data-w="78" style="height:100%;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:4px;width:0;transition:width 1.5s"></div></div></div>
+        <div style="padding:.3rem 0"><div style="font-size:.82rem;color:var(--light);margin-bottom:.25rem">NFV / 数据中心运维</div><div style="height:4px;background:rgba(148,163,184,0.1);border-radius:4px;overflow:hidden"><div class="sf" data-w="75" style="height:100%;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:4px;width:0;transition:width 1.5s"></div></div></div>
+        <div style="padding:.3rem 0"><div style="font-size:.82rem;color:var(--light);margin-bottom:.25rem">粤语 · 英语 · 普通话</div><div style="height:4px;background:rgba(148,163,184,0.1);border-radius:4px;overflow:hidden"><div class="sf" data-w="95" style="height:100%;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:4px;width:0;transition:width 1.5s"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Achievements ===== -->
+<section id="achieve">
+  <div class="container">
+    <div class="s-hdr reveal">
+      <p class="sn">Achievements</p>
+      <h2>荣誉 <span class="h">成就</span></h2>
+      <div class="s-line"></div>
+    </div>
+    <div class="pj">
+      <div class="pj-c reveal"><div class="ic">🏦</div><h4>交通银行感谢信</h4><p class="pm">2025</p><p>因卓越的项目交付与专业服务获得交通银行（BOCOM）香港分行客户感谢信。</p></div>
+      <div class="pj-c reveal"><div class="ic">🏛️</div><h4>工商银行感谢信</h4><p class="pm">2025</p><p>凭借专业的技术方案与高效服务获得工商银行（ICBCI）客户感谢信。</p></div>
+      <div class="pj-c reveal"><div class="ic">📈</div><h4>2026 年度职位晋升</h4><p class="pm">华讯网络</p><p>凭借优异工作表现获得 2026 年度职位与薪资调整认可。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact" style="background:rgba(30,41,59,0.12)">
+  <div class="container">
+    <div class="s-hdr reveal">
+      <p class="sn">Contact</p>
+      <h2>联系 <span class="h">我</span></h2>
+      <div class="s-line"></div>
+    </div>
+    <div class="cx reveal">
+      <h3>期待与您合作 🤝</h3>
+      <p>IT 项目合作 · 招聘 · 业务洽谈</p>
+      <div class="cl">
+        <a href="mailto:hu8325415@163.com">📧 hu8325415@163.com</a>
+        <a href="#">📍 中国 · 香港</a>
+        <a href="#">💼 华讯网络 (ECCOM)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container"><p>© 2026 胡泽瑞</p></div></footer>
+
+<script>
+// Particles
+(function(){const c=document.getElementById('particles-canvas'),ctx=c.getContext('2d');let ps=[];function r(){c.width=window.innerWidth;c.height=window.innerHeight;}r();window.addEventListener('resize',r);class P{constructor(){this.reset()}reset(){this.x=Math.random()*c.width;this.y=Math.random()*c.height;this.size=Math.random()*2+.3;this.sx=(Math.random()-.5)*.25;this.sy=(Math.random()-.5)*.25;this.op=Math.random()*.4+.08}update(){this.x+=this.sx;this.y+=this.sy;if(this.x<0||this.x>c.width)this.sx*=-1;if(this.y<0||this.y>c.height)this.sy*=-1}draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=`rgba(96,165,250,${this.op})`;ctx.fill()}}const ct=Math.min(50,Math.floor(c.width*c.height/20000));for(let i=0;i<ct;i++)ps.push(new P());function cn(){for(let i=0;i<ps.length;i++){for(let j=i+1;j<ps.length;j++){const dx=ps[i].x-ps[j].x,dy=ps[i].y-ps[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<130){ctx.beginPath();ctx.moveTo(ps[i].x,ps[i].y);ctx.lineTo(ps[j].x,ps[j].y);ctx.strokeStyle=`rgba(96,165,250,${.04*(1-dist/130)})`;ctx.lineWidth=.6;ctx.stroke()}}}}function an(){ctx.clearRect(0,0,c.width,c.height);ps.forEach(p=>{p.update();p.draw()});cn();requestAnimationFrame(an)}an()})();
+
+// Navbar
+const navbar=document.getElementById('navbar');window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>60)});
+const menuToggle=document.getElementById('menuToggle'),navLinks=document.getElementById('navLinks');
+menuToggle.addEventListener('click',()=>{navLinks.classList.toggle('open')});
+navLinks.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>navLinks.classList.remove('open'))});
+
+// Reveal
+const rev=document.querySelectorAll('.reveal');const ro=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -50px 0px'});
+rev.forEach(el=>ro.observe(el));
+
+// Skill bars
+const sfs=document.querySelectorAll('.sf');const bo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const w=e.getAttribute('data-w');setTimeout(()=>{e.style.width=w+'%'},200);bo.unobserve(e)}})},{threshold:.4});
+sfs.forEach(bar=>bo.observe(bar));
+</script>
+</body>
+</html>
